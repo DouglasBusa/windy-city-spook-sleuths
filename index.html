@@ -10,17 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --bg-card: #111111;
+            --bg: #0c0e12;
+            --bg-card: #161a20;
             --accent: #e63946;
             --accent-dark: #c1121f;
-            --accent-blue: #4da6ff;
-            --accent-blue-dim: #1a3a5c;
-            --text: #f5f5f5;
-            --text-muted: #b0b0b0;
-            --border: rgba(230, 57, 70, 0.35);
-            --border-blue: rgba(77, 166, 255, 0.4);
-            --silver: #c0c0c0;
+            --accent-blue: #5ba8e0;
+            --accent-blue-dim: #1e3a52;
+            --storm-grey: #8a939e;
+            --storm-grey-light: #c5ccd4;
+            --storm-grey-dark: #3a414b;
+            --text: #f0f2f5;
+            --text-muted: #a8b0ba;
+            --border: rgba(230, 57, 70, 0.3);
+            --border-blue: rgba(91, 168, 224, 0.35);
+            --border-grey: rgba(138, 147, 158, 0.4);
+            --silver: #d0d5dc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,10 +42,10 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.92);
-            backdrop-filter: blur(10px);
+            background: rgba(12, 14, 18, 0.94);
+            backdrop-filter: blur(12px);
             border-bottom: 2px solid var(--accent);
-            box-shadow: 0 0 20px rgba(77, 166, 255, 0.15);
+            box-shadow: 0 0 24px rgba(91, 168, 224, 0.12), 0 1px 0 rgba(138, 147, 158, 0.2);
         }
 
         nav {
@@ -61,7 +65,7 @@
             color: var(--text);
         }
 
-        .logo-text span { color: var(--accent); }
+        .logo-text span { color: var(--storm-grey-light); }
 
         nav ul { display: flex; list-style: none; gap: 2rem; }
 
@@ -79,8 +83,10 @@
 
         .hero {
             min-height: 100vh;
-            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%),
-                        linear-gradient(180deg, transparent 40%, rgba(26, 58, 92, 0.25) 100%);
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(91, 168, 224, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(58, 65, 75, 0.35) 0%, transparent 50%),
+                linear-gradient(180deg, #0c0e12 0%, #12151a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,7 +115,7 @@
         }
 
         .hero .sub {
-            color: var(--text-muted);
+            color: var(--storm-grey);
             margin-bottom: 2.5rem;
             font-size: 1.05rem;
         }
@@ -131,8 +137,9 @@
 
         .btn:hover {
             background: transparent;
-            color: var(--accent);
-            box-shadow: 0 0 20px rgba(77, 166, 255, 0.4);
+            color: var(--storm-grey-light);
+            border-color: var(--storm-grey);
+            box-shadow: 0 0 20px rgba(91, 168, 224, 0.35);
         }
 
         section {
@@ -155,13 +162,13 @@
             display: block;
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+            background: linear-gradient(90deg, var(--accent), var(--accent-blue), var(--storm-grey));
             margin: 1rem auto 0;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--text-muted);
+            color: var(--storm-grey);
             max-width: 650px;
             margin: 1.5rem auto 3rem;
             font-size: 1.05rem;
@@ -174,7 +181,7 @@
             align-items: center;
         }
 
-        .about-text p { margin-bottom: 1.2rem; color: var(--text-muted); }
+        .about-text p { margin-bottom: 1.2rem; color: var(--storm-grey); }
         .about-text strong { color: var(--text); }
 
         .about-logos {
@@ -199,17 +206,18 @@
 
         .card {
             background: var(--bg-card);
-            border: 1px solid #222;
+            border: 1px solid var(--storm-grey-dark);
             border-left: 4px solid var(--accent);
             border-radius: 6px;
             padding: 1.8rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
 
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(77, 166, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(91, 168, 224, 0.18);
             border-left-color: var(--accent-blue);
+            border-color: var(--storm-grey);
         }
 
         .card h3 {
@@ -220,7 +228,7 @@
             font-size: 1.3rem;
         }
 
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card p { color: var(--storm-grey); font-size: 0.95rem; }
 
         .invest-grid {
             display: grid;
@@ -232,7 +240,7 @@
             background: var(--bg-card);
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #222;
+            border: 1px solid var(--storm-grey-dark);
         }
 
         .invest-card-content {
@@ -255,7 +263,7 @@
 
         input, textarea {
             background: #111;
-            border: 1px solid #333;
+            border: 1px solid var(--storm-grey-dark);
             color: var(--text);
             padding: 1rem;
             border-radius: 4px;
@@ -270,8 +278,8 @@
         footer {
             text-align: center;
             padding: 3rem 2rem;
-            border-top: 1px solid #222;
-            color: var(--text-muted);
+            border-top: 1px solid var(--storm-grey-dark);
+            color: var(--storm-grey);
             font-size: 0.9rem;
         }
 
@@ -355,13 +363,13 @@
         <p class="section-subtitle">A look at past investigations around the Windy City.</p>
         <div class="invest-grid">
             <div class="invest-card">
-                <div class="invest-card-content" style="min-height: 180px; display: flex; flex-direction: column; justify-content: center; border-left: 3px solid #4da6ff;">
+                <div class="invest-card-content" style="min-height: 180px; display: flex; flex-direction: column; justify-content: center; border-left: 3px solid #5ba8e0;">
                     <h3>Case Placeholder 1</h3>
                     <p>Location / investigation title to be added. Description of findings or activity goes here.</p>
                 </div>
             </div>
             <div class="invest-card">
-                <div class="invest-card-content" style="min-height: 180px; display: flex; flex-direction: column; justify-content: center; border-left: 3px solid #4da6ff;">
+                <div class="invest-card-content" style="min-height: 180px; display: flex; flex-direction: column; justify-content: center; border-left: 3px solid #5ba8e0;">
                     <h3>Case Placeholder 2</h3>
                     <p>Second investigation slot. Add case name, location, and a short summary of results when ready.</p>
                 </div>
